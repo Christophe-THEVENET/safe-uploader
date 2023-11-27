@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ajouter/Modifier un fichier
+{% endblock %}
+
+{% block body %}
+	<main class="container">
+		{{form_start(form)}}
+		{{- form_errors(form) -}}
+		{{form_rest(form)}}
+		{{form_end(form)}}
+	</main>
+{% endblock %}

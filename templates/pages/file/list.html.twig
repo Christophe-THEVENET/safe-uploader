@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	Liste des fichiers
+{% endblock %}
+
+{% block body %}
+
+	<main class="container">
+
+		<h1>Liste des fichiers</h1>
+
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Chemin</th>
+					<th>Affichage</th>
+					<th>Lien</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for file in files %}
+					<tr>
+						<td>{{file.name}}</td>
+						<td>{{file.filename}}</td>
+						{#   afficher l image on appelle directement la route de l'image dans la balise src  #}
+						<td><img src="{{ path('app_display_image', {'filename': file.filename}) }}" alt="image téléchargée {{file.filename}}"></td>
+
+
+						<td>Lien</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan='4'>Aucun fichier trouvé</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</main>
+{% endblock %}
